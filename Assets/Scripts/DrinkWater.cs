@@ -7,6 +7,7 @@ public class DrinkWater : MonoBehaviour
 
     public Animator animator;
     public GameObject ui;
+    public AudioClip waterSound;
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +30,19 @@ public class DrinkWater : MonoBehaviour
         }
     }
 
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            HideUI();
+
+        }
+    }
+
     public void Drink()
     {
         animator.SetTrigger("Clicked");
+        gameObject.GetComponent<AudioSource>().PlayOneShot(waterSound);
     }
 
     public void HideUI()
