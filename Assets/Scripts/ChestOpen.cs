@@ -6,6 +6,8 @@ public class ChestOpen : MonoBehaviour
 {
 
     public Animator animator;
+    public AudioClip chestOpenSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,8 @@ public class ChestOpen : MonoBehaviour
         {
             animator.SetTrigger("Open");
             animator.ResetTrigger("Close");
+            gameObject.GetComponent<AudioSource>().PlayOneShot(chestOpenSound);
+
         }
     }
 
