@@ -13,6 +13,7 @@ public class FireCannon : MonoBehaviour
     void Start()
     {
         HideUI();
+
     }
 
     // Update is called once per frame
@@ -39,9 +40,8 @@ public class FireCannon : MonoBehaviour
 
     public void Shoot()
     {
-        gameObject.GetComponent<AudioSource>().PlayOneShot(cannonSound);
-        smokeCloud.Play();
-
+            gameObject.GetComponent<AudioSource>().PlayOneShot(cannonSound);
+            smokeCloud.Play();
     }
 
     public void HideUI()
