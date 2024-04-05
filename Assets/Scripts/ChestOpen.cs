@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ChestOpen : MonoBehaviour
 {
-
+    // Animation 
     public Animator animator;
+    // Audio
     public AudioClip chestOpenSound;
 
     // Start is called before the first frame update
@@ -24,6 +25,7 @@ public class ChestOpen : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            // If player has entered trigger collider play sound and animation open
             animator.SetTrigger("Open");
             animator.ResetTrigger("Close");
             gameObject.GetComponent<AudioSource>().PlayOneShot(chestOpenSound);
@@ -35,6 +37,8 @@ public class ChestOpen : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            // If player has exited trigger collider play sound and animation close
+
             animator.ResetTrigger("Open");
             animator.SetTrigger("Close");
         }
